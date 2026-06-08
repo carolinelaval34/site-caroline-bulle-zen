@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Sophrologie | La Bulle Zen de Caroline</title>
+  <meta name="description" content="Conseils sophrologie, gestion du stress, sommeil réparateur, accompagnement cancer. Articles de Caroline Laval, sophrologue à Jacou (34)." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog Sophrologie | La Bulle Zen de Caroline" />
+  <meta property="og:description" content="Conseils pratiques sur le sommeil, le stress, la maladie et la sophrologie. Par Caroline Laval, sophrologue à Jacou (34)." />
+  <meta property="og:url" content="https://VOTRE-DOMAINE.fr/blog.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="La Bulle Zen de Caroline" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://VOTRE-DOMAINE.fr/blog.html" />
+  <style>
+    /* ---- BLOG ---- */
+    .blog-hero {
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+    }
+    .blog-hero__img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.72);
+    }
+    .blog-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(44,24,16,0.15) 0%,
+        rgba(154,78,56,0.35) 60%,
+        rgba(44,24,16,0.55) 100%
+      );
+    }
+    .blog-hero__content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+    }
+    .blog-hero__title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600; color: #fff;
+      margin-bottom: 12px; line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .blog-hero__intro {
+      font-size: 1rem; color: rgba(255,255,255,0.88);
+      max-width: 500px; line-height: 1.8;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    }
+    .blog-hero__eyebrow-text {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      margin-bottom: 12px;
+    }
+    @media (max-width: 640px) {
+      .blog-hero__img { height: 300px; }
+    }
+
+    .blog-filters {
+      padding: 24px 0 32px;
+      background: var(--bg);
+    }
+    .blog-filters__list {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; list-style: none;
+    }
+    .blog-filters__btn {
+      padding: 7px 20px; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 700;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--brown-mid);
+      cursor: pointer; transition: all var(--ease);
+      font-family: var(--sans); letter-spacing: 0.03em;
+    }
+    .blog-filters__btn:hover,
+    .blog-filters__btn.is-active {
+      background: var(--terra); border-color: var(--terra); color: #fff;
+    }
+
+    /* LISTE ARTICLES */
+    .blog-list-section {
+      background: var(--white);
+      padding: 0 0 88px;
+    }
+    .blog-list {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .article-row {
+      display: block;
+      padding: 44px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity var(--ease);
+    }
+    .article-row:first-child { border-top: 1px solid var(--border); }
+    .article-row:hover { opacity: 0.75; }
+
+    .article-row__meta {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 14px;
+    }
+    .article-row__tag {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--terra-dark); background: #FDF5F0;
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .article-row__date {
+      font-size: 0.78rem; color: var(--brown-mid);
+    }
+    .article-row__read {
+      font-size: 0.78rem; color: var(--brown-mid);
+    }
+    .article-row__dot {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: var(--border); flex-shrink: 0;
+    }
+
+    .article-row__title {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 600; color: var(--brown);
+      line-height: 1.35; margin-bottom: 10px;
+    }
+    .article-row__excerpt {
+      font-size: 0.93rem; color: var(--brown-mid);
+      line-height: 1.75; max-width: 580px;
+    }
+
+    /* CTA bas de liste */
+    .blog-cta {
+      max-width: 720px; margin: 56px auto 0; padding: 0 24px;
+      text-align: center;
+    }
+    .blog-cta__title {
+      font-family: var(--serif); font-size: 1.4rem;
+      font-weight: 600; color: var(--brown); margin-bottom: 10px;
+    }
+    .blog-cta__text {
+      font-size: 0.93rem; color: var(--brown-mid);
+      line-height: 1.75; margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .article-row { padding: 32px 0; }
+      .article-row__meta { flex-wrap: wrap; gap: 8px; }
+    }
+  </style>
+  <!-- Klaviyo tracking -->
+  <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/WJ6gYP/klaviyo.js?company_id=WJ6gYP'></script>
+  <script type='text/javascript'>
+  !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return'push'===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t='function'==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="La Bulle Zen de Caroline, retour accueil">
+      <img src="Logo.png" alt="La Bulle Zen de Caroline" class="nav__logo-img" />
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">La Bulle Zen de Caroline</span>
+        <span class="nav__logo-sub">Sophrologue à Jacou (34)</span>
+      </div>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#sophrologie">La sophrologie</a></li>
+      <li><a href="index.html#apropos">Qui suis-je ?</a></li>
+      <li><a href="index.html#tarifs">Tarifs</a></li>
+      <li><a href="actualites.html">Mes actualités</a></li>
+      <li><a href="blog.html" style="color: var(--terra-dark); font-weight: 700;">Blog</a></li>
+      <li><a href="https://calendly.com/laval-caroline/premier-echange" target="_blank" rel="noopener" class="nav__cta">Prendre RDV</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://calendly.com/laval-caroline/premier-echange" target="_blank" rel="noopener" class="nav__mobile-cta">Prendre RDV</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <img
+    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=80&fit=crop&crop=center"
+    alt="Femme en méditation au coucher du soleil"
+    class="blog-hero__img"
+  />
+  <div class="blog-hero__overlay"></div>
+  <div class="blog-hero__content">
+    <p class="blog-hero__eyebrow-text">Blog</p>
+    <h1 class="blog-hero__title">Sophrologie, bien-être &amp; sérénité</h1>
+    <p class="blog-hero__intro">Des articles pratiques sur le sommeil, le stress, la maladie et le quotidien.</p>
+  </div>
+</section>
+
+<!-- FILTRES -->
+<div class="blog-filters">
+  <div class="container">
+    <ul class="blog-filters__list">
+      <li><button class="blog-filters__btn is-active">Tous</button></li>
+      <li><button class="blog-filters__btn">Sommeil</button></li>
+      <li><button class="blog-filters__btn">Stress &amp; émotions</button></li>
+      <li><button class="blog-filters__btn">Maladie &amp; cancer</button></li>
+      <li><button class="blog-filters__btn">Sophrologie</button></li>
+      <li><button class="blog-filters__btn">Sérénité</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- LISTE ARTICLES -->
+<section class="blog-list-section">
+  <div class="blog-list">
+
+    <a href="blog-sophrologie-definition.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Sophrologie</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">5 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">4 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Qu'est-ce que la sophrologie ? Ce que c'est vraiment (et ce que ce n'est pas)</h2>
+      <p class="article-row__excerpt">On confond souvent la sophrologie avec la méditation ou le yoga. Ce n'est ni l'un ni l'autre. Voici ce que c'est concrètement, et pourquoi ça fonctionne.</p>
+    </a>
+
+    <a href="blog-coherence-cardiaque.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Stress &amp; émotions</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">4 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">4 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">La cohérence cardiaque : calmer son système nerveux en 5 minutes</h2>
+      <p class="article-row__excerpt">Une technique de respiration simple et validée pour réduire le cortisol et retrouver un état de calme rapidement.</p>
+    </a>
+
+    <a href="blog-sophrologie-cancer.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Maladie &amp; cancer</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">7 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">4 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Sophrologie et cancer : ce que ça change vraiment au quotidien</h2>
+      <p class="article-row__excerpt">Vivre avec un cancer, c'est faire face à une fatigue profonde, à l'anxiété des traitements, à la solitude. La sophrologie ne guérit pas, mais elle aide à traverser.</p>
+    </a>
+
+    <a href="blog-exercices-sommeil.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Sommeil</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">6 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">3 exercices de sophrologie pour retrouver le sommeil quand tout vous empêche de dormir</h2>
+      <p class="article-row__excerpt">Les pensées tournent, le corps est tendu, et le sommeil ne vient pas. 3 techniques que vous pouvez pratiquer ce soir.</p>
+    </a>
+
+    <a href="blog-angoisse-nocturne.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Stress &amp; émotions</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">5 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Angoisse nocturne : comprendre pourquoi ça arrive et 3 façons d'en sortir</h2>
+      <p class="article-row__excerpt">Se réveiller à 3h du matin avec le cœur qui bat et les pensées qui s'emballent. C'est épuisant. Et c'est très courant. Voici comment y faire face.</p>
+    </a>
+
+    <a href="blog-lacher-prise.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Sérénité</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">4 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Lâcher prise : ce que ça veut dire vraiment et comment y arriver</h2>
+      <p class="article-row__excerpt">"Lâcher prise" est peut-être le conseil le plus donné et le moins utile. Voici ce que ça signifie vraiment en pratique, et comment y arriver concrètement.</p>
+    </a>
+
+    <a href="blog-charge-mentale.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Stress &amp; émotions</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">5 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Charge mentale : pourquoi votre corps vous envoie des signaux que vous n'écoutez plus</h2>
+      <p class="article-row__excerpt">Insomnies, tensions musculaires, irritabilité... Ces signaux ne sont pas des faiblesses. Ce sont des messages. Voici comment les entendre.</p>
+    </a>
+
+    <a href="blog-sommeil-maladie.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Sommeil</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">6 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Pourquoi on dort mal quand on est malade, et comment la sophrologie peut aider</h2>
+      <p class="article-row__excerpt">La maladie perturbe profondément le sommeil : douleurs, médicaments, anxiété... Voici pourquoi, et ce qu'on peut faire ensemble.</p>
+    </a>
+
+    <a href="blog-sophrologie-operation.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Maladie &amp; cancer</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">5 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Préparer une opération chirurgicale avec la sophrologie</h2>
+      <p class="article-row__excerpt">L'anxiété pré-opératoire est normale. La sophrologie permet de l'apprivoiser et d'aborder l'intervention avec plus de calme et de confiance.</p>
+    </a>
+
+    <a href="blog-sophrologie-burnout.html" class="article-row">
+      <div class="article-row__meta">
+        <span class="article-row__tag">Stress &amp; émotions</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__read">6 min</span>
+        <span class="article-row__dot"></span>
+        <span class="article-row__date">5 juin 2026</span>
+      </div>
+      <h2 class="article-row__title">Sophrologie et burn-out : comment sortir de l'épuisement quand rien ne va plus</h2>
+      <p class="article-row__excerpt">Le burn-out ne disparaît pas avec du repos. Il faut réapprendre à son corps et à son mental à fonctionner autrement. La sophrologie peut faire partie de ce chemin.</p>
+    </a>
+
+  </div>
+
+  <div class="blog-cta">
+    <h2 class="blog-cta__title">Vous voulez aller plus loin ?</h2>
+    <p class="blog-cta__text">Réservez une séance découverte et vivons ensemble une première expérience de sophrologie.</p>
+    <a href="https://calendly.com/laval-caroline/premier-echange" target="_blank" rel="noopener" class="btn btn--primary">Réserver ma séance découverte</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-top">
+          <img src="photocaroline.webp" alt="Caroline Laval" class="footer__avatar" />
+          <div>
+            <p class="footer__logo">La Bulle Zen de Caroline</p>
+            <p class="footer__location">Sophrologue · Jacou (34)</p>
+          </div>
+        </div>
+        <p class="footer__tagline">"Votre respiration a des capacités qui vous étonneront&nbsp;!"</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <nav class="footer__nav" aria-label="Navigation pied de page">
+          <a href="index.html#sophrologie">La sophrologie</a>
+          <a href="index.html#apropos">À propos de moi</a>
+          <a href="index.html#tarifs">Tarifs</a>
+          <a href="index.html#faq">Questions fréquentes</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://calendly.com/laval-caroline/premier-echange" target="_blank" rel="noopener">Prendre rendez-vous</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Articles récents</p>
+        <nav class="footer__nav" aria-label="Articles récents">
+          <a href="blog.html">3 exercices pour retrouver le sommeil</a>
+          <a href="blog.html">La cohérence cardiaque en 5 minutes</a>
+          <a href="blog.html">Sophrologie et cancer : ce que ça change</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Me contacter</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/la_bulle_zen_de_caroline/" target="_blank" rel="noopener" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61552401120405" target="_blank" rel="noopener" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="mailto:labullezen34@gmail.com" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contacter par email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>2026 La Bulle Zen de Caroline · Tous droits réservés · <a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="cgv.html">CGV</a> · <a href="cookies.html">Cookies</a></p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('navBurger');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('.blog-filters__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.blog-filters__btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+</script>
+<script src="cookie-banner.js"></script>
+</body>
+</html>
