@@ -1,0 +1,32 @@
+name: Publication planifiée
+
+# Reconstruit le site Cloudflare Pages chaque mardi et jeudi à 9h (Paris, été)
+# pour publier les articles dont la date publishedAt est arrivée.
+#
+# CONFIGURATION REQUISE :
+# 1. Cloudflare Dashboard -> Workers et Pages -> projet carolinelaval
+#    -> Paramètres -> Builds & deployments -> Deploy hooks -> créer un hook
+# 2. Copier l'URL du hook
+# 3. GitHub : Settings -> Secrets and variables -> Actions -> New secret
+#    nom : CF_DEPLOY_HOOK , valeur : l'URL copiée
+
+on:
+  schedule:
+    - cron: '0 7 * * 2'   # Mardi  07h00 UTC = 09h00 Paris (été)
+    - cron: '0 7 * * 4'   # Jeudi  07h00 UTC = 09h00 Paris (été)
+  workflow_dispatch:        # Déclenchement manuel possible
+
+jobs:
+  trigger-rebuild:
+    name: Déclencher la reconstruction Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Appel du deploy hook Cloudflare
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.CF_DEPLOY_HOOK }}")
+          echo "Statut HTTP : $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "Erreur : le deploy hook a retourné $HTTP_STATUS"
+            exit 1
+          fi
+          echo "Reconstruction Cloudflare Pages déclenchée avec succès."

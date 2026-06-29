@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide Gratuit : Angoisse &amp; Cancer | La Bulle Zen de Caroline</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    .guide-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      background: var(--bg);
+    }
+    .guide-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 56px 48px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .guide-badge {
+      display: inline-block;
+      background: var(--terra-light);
+      color: var(--terra-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .guide-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .guide-subtitle {
+      font-size: 1rem;
+      color: var(--brown-mid);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .guide-list {
+      text-align: left;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+    }
+    .guide-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--brown);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .guide-list li:last-child { border-bottom: none; }
+    .guide-list .check {
+      color: var(--terra);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--terra);
+      color: #fff;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease;
+      box-shadow: 0 4px 16px rgba(191,112,85,0.35);
+      width: 100%;
+      max-width: 380px;
+    }
+    .btn-download:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+    }
+    .guide-footer {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .guide-footer img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .guide-footer-text {
+      text-align: left;
+    }
+    .guide-footer-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--brown);
+    }
+    .guide-footer-role {
+      font-size: 0.82rem;
+      color: var(--brown-mid);
+    }
+    @media (max-width: 520px) {
+      .guide-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="guide-hero">
+  <div class="guide-card">
+
+    <span class="guide-badge">Cadeau offert</span>
+
+    <h1 class="guide-title">Quand l'angoisse liée à la maladie prend toute la place...</h1>
+    <p class="guide-subtitle">
+      3 astuces pour s'apaiser en quelques minutes, avec 2 exercices guidés inclus.
+    </p>
+
+    <ul class="guide-list">
+      <li><span class="check">✓</span> Prendre du temps pour soi chaque jour</li>
+      <li><span class="check">✓</span> Faire des exercices de relaxation dynamique</li>
+      <li><span class="check">✓</span> Pratiquer la visualisation positive</li>
+      <li><span class="check">✓</span> Exercice guidé : pompage des épaules (5 min)</li>
+      <li><span class="check">✓</span> Exercice guidé : sophro substitution sensorielle (10-15 min)</li>
+    </ul>
+
+    <a href="guide-angoisse-cancer.pdf" download class="btn-download">
+      &#8595;&nbsp; Télécharger mon guide gratuit
+    </a>
+
+    <div class="guide-footer">
+      <img src="photocaroline.webp" alt="Caroline Laval, sophrologue" />
+      <div class="guide-footer-text">
+        <div class="guide-footer-name">Caroline Laval</div>
+        <div class="guide-footer-role">Sophrologue spécialisée en accompagnement du cancer</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actualités | La Bulle Zen de Caroline</title>
+  <meta name="description" content="Les actualités et événements de Caroline, sophrologue à Jacou (34). Retrouvez les prochains événements bien-être auxquels je participe." />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://VOTRE-DOMAINE.fr/actualites.html" />
+  <style>
+    .actu-hero { background: var(--bg); padding: 64px 0 48px; text-align: center; border-bottom: 1px solid var(--border); }
+    .actu-hero__title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600; color: var(--brown); margin-bottom: 10px; }
+    .actu-hero__sub { font-size: 0.95rem; color: var(--brown-mid); line-height: 1.7; }
+
+    .actu-content { padding: 64px 0 88px; background: var(--white); }
+    .actu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 40px; }
+
+    .actu-card { background: var(--bg); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; transition: box-shadow var(--ease), transform var(--ease); }
+    .actu-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .actu-card__img { width: 100%; display: block; }
+    .actu-card__body { padding: 24px 28px; }
+    .actu-card__tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-dark); background: #FDF5F0; padding: 4px 12px; border-radius: 50px; margin-bottom: 12px; }
+    .actu-card__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--brown); margin-bottom: 8px; line-height: 1.3; }
+    .actu-card__date { font-size: 0.85rem; color: var(--terra-dark); font-weight: 700; margin-bottom: 10px; }
+    .actu-card__text { font-size: 0.92rem; color: var(--brown-mid); line-height: 1.75; margin-bottom: 20px; }
+    .actu-empty { text-align: center; padding: 64px 24px; color: var(--brown-mid); font-style: italic; font-size: 0.95rem; }
+
+    @media (max-width: 640px) {
+      .actu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <!-- Klaviyo tracking -->
+  <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/WJ6gYP/klaviyo.js?company_id=WJ6gYP'></script>
+  <script type='text/javascript'>
+  !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return'push'===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t='function'==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MS5Z6VDL');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MS5Z6VDL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="Logo.png" alt="La Bulle Zen de Caroline" class="nav__logo-img" />
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">La Bulle Zen de Caroline</span>
+        <span class="nav__logo-sub">Sophrologue à Jacou (34)</span>
+      </div>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#sophrologie">La sophrologie</a></li>
+      <li><a href="index.html#tarifs">Tarifs</a></li>
+      <li><a href="actualites.html" style="color: var(--terra-dark); font-weight: 700;">Mes actualités</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener" class="nav__cta">Prendre RDV</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener" class="nav__mobile-cta">Prendre RDV</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="actu-hero">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom: 12px;">Événements &amp; actualités</p>
+    <h1 class="actu-hero__title">Retrouvez-moi près de chez vous</h1>
+    <p class="actu-hero__sub">Les événements bien-être auxquels je participe, les nouvelles de La Bulle Zen.</p>
+  </div>
+</section>
+
+<!-- CONTENU -->
+<section class="actu-content">
+  <div class="container">
+    <div class="actu-grid">
+
+      <!-- Événement 1 : Évasion Féminine -->
+      <div class="actu-card">
+        <img src="evasion-feminine.webp" alt="Évasion Féminine - Événement bien-être à Nîmes" class="actu-card__img" />
+        <div class="actu-card__body">
+          <span class="actu-card__tag">Événement</span>
+          <h2 class="actu-card__title">Évasion Féminine à Nîmes</h2>
+          <p class="actu-card__date">27 ou 28 juin 2026 · 13h à 19h · Nîmes</p>
+          <p class="actu-card__text">
+            Une après-midi rien que pour toi, autour de la piscine. Détente, échanges, bien-être et artisanat&hellip;
+            Je serai présente pour vous faire découvrir la sophrologie : relaxation et lâcher-prise en séance de 30 minutes.
+            50€ tout inclus, places limitées.
+          </p>
+          <a href="tel:+33617080880" class="btn btn--outline">Réserver ma place · 06 17 08 08 80</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-top">
+          <img src="photocaroline.webp" alt="Caroline Laval" class="footer__avatar" />
+          <div>
+            <p class="footer__logo">La Bulle Zen de Caroline</p>
+            <p class="footer__location">Sophrologue · Jacou (34)</p>
+          </div>
+        </div>
+        <p class="footer__tagline">"Votre respiration a des capacités qui vous étonneront&nbsp;!"</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <nav class="footer__nav">
+          <a href="index.html#sophrologie">La sophrologie</a>
+          <a href="index.html#apropos">À propos de moi</a>
+          <a href="index.html#tarifs">Tarifs</a>
+          <a href="index.html#faq">Questions fréquentes</a>
+          <a href="actualites.html">Actualités</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener">Prendre rendez-vous</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Articles récents</p>
+        <nav class="footer__nav">
+          <a href="blog.html">3 exercices pour retrouver le sommeil</a>
+          <a href="blog.html">La cohérence cardiaque en 5 minutes</a>
+          <a href="blog.html">Sophrologie et cancer : ce que ça change</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Me contacter</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/la_bulle_zen_de_caroline/" target="_blank" rel="noopener" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61552401120405" target="_blank" rel="noopener" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook
+          </a>
+          <a href="mailto:labullezen34@gmail.com" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Contacter par email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>2026 La Bulle Zen de Caroline · Tous droits réservés · <a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="cgv.html">CGV</a> · <a href="cookies.html">Cookies</a></p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('navBurger');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+<script src="cookie-banner.js"></script>
+</body>
+</html>

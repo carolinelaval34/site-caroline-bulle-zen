@@ -1,0 +1,154 @@
+---
+const { title, description, category, publishedAt, readingTime, intro, slug } = Astro.props;
+const moisFr = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+const d = publishedAt instanceof Date ? publishedAt : new Date(publishedAt);
+const dateAffichee = `${d.getDate()} ${moisFr[d.getMonth()]} ${d.getFullYear()}`;
+const dateISO = d.toISOString().slice(0,10);
+const url = `https://carolinelaval.com/blog-${slug}`;
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | La Bulle Zen de Caroline</title>
+  <meta name="description" content={description} />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content="https://carolinelaval.com/photocaroline.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="La Bulle Zen de Caroline" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href={url} />
+  <link rel="stylesheet" href="/style.css?v=10" />
+  <link rel="stylesheet" href="/article.css?v=3" />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context":"https://schema.org","@type":"Article","headline":title,"description":description,
+    "author":{"@type":"Person","name":"Caroline Laval","url":"https://carolinelaval.com/"},
+    "publisher":{"@type":"Organization","name":"La Bulle Zen de Caroline"},
+    "datePublished":dateISO,"url":url
+  })} />
+  <!-- Klaviyo -->
+  <script is:inline async type="text/javascript" src="https://static.klaviyo.com/onsite/js/WJ6gYP/klaviyo.js?company_id=WJ6gYP"></script>
+  <script is:inline type="text/javascript">{`!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return'push'===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t='function'==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();`}</script>
+  <!-- Google Tag Manager -->
+  <script is:inline>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MS5Z6VDL');`}</script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MS5Z6VDL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="/index.html" class="nav__logo">
+      <img src="/Logo.png" alt="La Bulle Zen de Caroline" class="nav__logo-img" />
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">La Bulle Zen de Caroline</span>
+        <span class="nav__logo-sub">Sophrologue à Jacou (34)</span>
+      </div>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html#sophrologie">La sophrologie</a></li>
+      <li><a href="/index.html#tarifs">Tarifs</a></li>
+      <li><a href="/actualites.html">Mes actualités</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener" class="nav__cta">Prendre RDV</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener" class="nav__mobile-cta">Prendre RDV</a>
+  </div>
+</nav>
+
+<div class="article-back"><div class="container"><a href="/blog">&#8592; Retour au blog</a></div></div>
+
+<header class="article-hero">
+  <div class="container">
+    <div class="article-hero__meta">
+      <span class="article-hero__cat">{category}</span>
+      <span class="article-hero__time">{readingTime} min de lecture</span>
+      <span class="article-hero__date">{dateAffichee}</span>
+    </div>
+    <h1 class="article-hero__title">{title}</h1>
+    <p class="article-hero__intro">{intro}</p>
+    <div class="article-hero__author">
+      <img src="/photocaroline.webp" alt="Caroline Laval, sophrologue" class="article-hero__avatar" />
+      <div>
+        <span class="article-hero__author-name">Caroline Laval</span>
+        <span class="article-hero__author-role">Sophrologue · Jacou (34)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="article-content">
+  <div class="article-body">
+    <slot />
+
+    <div class="article-lire-aussi">
+      <p class="article-lire-aussi__title">Lire aussi</p>
+      <div class="article-lire-aussi__grid">
+        <a href="/blog-sophrologie-cancer" class="article-lire-aussi__card">
+          <span class="article-lire-aussi__tag">Maladie &amp; cancer</span>
+          <span class="article-lire-aussi__text">Sophrologie et cancer : ce que ça change vraiment au quotidien</span>
+        </a>
+        <a href="/blog-sommeil-maladie" class="article-lire-aussi__card">
+          <span class="article-lire-aussi__tag">Sommeil</span>
+          <span class="article-lire-aussi__text">Pourquoi on dort mal quand on est malade, et comment la sophrologie peut aider</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="article-cta">
+      <p class="article-cta__title">Envie d'être accompagné·e ?</p>
+      <p class="article-cta__text">Réservez votre séance découverte de 1h15, en visio ou sur le secteur de Jacou, pour faire connaissance et voir ensemble, sans engagement, comment je peux vous aider.</p>
+      <a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener" class="btn btn--primary">Réserver ma séance découverte de 1h15</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-top">
+          <img src="/photocaroline.webp" alt="Caroline Laval" class="footer__avatar" />
+          <div>
+            <p class="footer__logo">La Bulle Zen de Caroline</p>
+            <p class="footer__location">Sophrologue · Jacou (34)</p>
+          </div>
+        </div>
+        <p class="footer__tagline">"Votre respiration a des capacités qui vous étonneront&nbsp;!"</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <nav class="footer__nav">
+          <a href="/index.html#sophrologie">La sophrologie</a>
+          <a href="/index.html#apropos">Qui suis-je ?</a>
+          <a href="/index.html#tarifs">Tarifs</a>
+          <a href="/blog">Blog</a>
+          <a href="https://calendly.com/laval-caroline/seance-decouverte1" target="_blank" rel="noopener">Prendre rendez-vous</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Me contacter</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/la_bulle_zen_de_caroline/" target="_blank" rel="noopener" class="footer__social-link">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61552401120405" target="_blank" rel="noopener" class="footer__social-link">Facebook</a>
+          <a href="mailto:labullezen34@gmail.com" class="footer__social-link">Contacter par email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>2026 La Bulle Zen de Caroline · Tous droits réservés · <a href="/mentions-legales.html">Mentions légales</a> · <a href="/politique-confidentialite.html">Politique de confidentialité</a> · <a href="/cgv.html">CGV</a> · <a href="/cookies.html">Cookies</a></p>
+  </div>
+</footer>
+
+<script is:inline>{`const burger=document.getElementById('navBurger');const links=document.getElementById('navLinks');burger.addEventListener('click',()=>{const open=links.classList.toggle('is-open');burger.setAttribute('aria-expanded',open);});`}</script>
+<script is:inline src="/cookie-banner.js"></script>
+</body>
+</html>

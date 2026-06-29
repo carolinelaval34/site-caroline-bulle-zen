@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  const articles = await getCollection('articles', ({ data }) => !data.draft && data.publishedAt <= today);
+  return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+<ArticleLayout {...article.data} slug={article.slug}>
+  <Content />
+</ArticleLayout>
