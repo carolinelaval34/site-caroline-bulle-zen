@@ -1,0 +1,33 @@
+name: Publication planifiée
+
+# Chaque mardi et jeudi à 9h (Paris, heure d'été), pousse un commit vide sur
+# la branche "cloudflare". Cloudflare Pages détecte le push et reconstruit le
+# site, ce qui publie automatiquement les articles dont la date publishedAt
+# est arrivée (filtre dans blog-[slug].astro et blog.astro).
+
+on:
+  schedule:
+    - cron: '0 7 * * 2'   # Mardi  07h00 UTC = 09h00 Paris (été)
+    - cron: '0 7 * * 4'   # Jeudi  07h00 UTC = 09h00 Paris (été)
+  workflow_dispatch:       # Déclenchement manuel possible
+
+permissions:
+  contents: write
+
+jobs:
+  republier:
+    name: Déclencher la reconstruction Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer la branche cloudflare
+        uses: actions/checkout@v4
+        with:
+          ref: cloudflare
+          fetch-depth: 1
+
+      - name: Commit vide pour déclencher le rebuild
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: publication planifiée (rebuild mardi/jeudi)"
+          git push origin HEAD:cloudflare
